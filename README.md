@@ -22,3 +22,5 @@ There are a bunch of things missing from this basic kernel. Here's a list of thi
 - Get some keyboard input going.
 - Improving our build system. 
 - GUI!
+
+More up to date details can be found at the [Trello](https://trello.com/b/T1YaAKNJ/devos-development). 
