@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include <kernel/tty.h>
 
@@ -12,5 +13,5 @@ void kernel_launch(void)
 
 void kernel_main(void)
 {
-	printf("Some\nText\nHere\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFoo");
+	printf("Some\nText\nHere\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFoo\n");
 }

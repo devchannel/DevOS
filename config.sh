@@ -3,6 +3,8 @@
 SYSTEM_HEADER_PROJECTS="libc kernel"
 PROJECTS="libc kernel"
 
+export PATH="$HOME/opt/cross/bin:$PATH"
+
 export MAKE=${MAKE:-make}
 export HOST=${HOST:-i686-elf}
 
