@@ -51,6 +51,4 @@ _start:
 	jmp .forever ; loop forever
 ; So cool, much wow
 
-
-
-
+%include 'arch/i386/gdt.asm'
