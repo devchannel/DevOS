@@ -1,6 +1,11 @@
-*.iso
+**.iso
 isodir
 sysroot
+
+**.swp
+**.swo
+
+**.kernel
 
 # Object files
 *.o
@@ -14,7 +19,7 @@ sysroot
 
 # Libraries
 *.lib
-*.a
+**.a
 *.la
 *.lo
 
