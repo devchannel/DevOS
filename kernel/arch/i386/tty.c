@@ -6,7 +6,10 @@
 #include <kernel/tty.h>
 #include <kernel/vga.h>
 
-void terminal_putentry(char c, uint8_t color, size_t x, size_t y)
+#include "idt.h"
+#include "gdt.h"
+
+static void terminal_putentry(char c, uint8_t color, size_t x, size_t y)
 {
 	terminal_buffer[y * VGA_WIDTH + x] = make_vga_entry(c, color);
 }
@@ -27,11 +30,16 @@ void clear()
 
 void terminal_init(void)
 {
-	terminal_color = join_color(COLOR_LIGHT_GREY, COLOR_BLACK);
+	set_terminal_color(COLOR_LIGHT_CYAN, COLOR_DARK_GREY);
 	terminal_buffer = (uint16_t*) 0xB8000;
+	
+	init_gdt();
+	init_idt();
+	
+	clear();	
 }
 
-void terminal_scroll()
+static void terminal_scroll()
 {
 	for(size_t row = 1; row < VGA_HEIGHT; row++)
 		memmove((terminal_buffer + ((row - 1) * VGA_WIDTH)), (terminal_buffer + (row * VGA_WIDTH)), VGA_WIDTH);

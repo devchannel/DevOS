@@ -1,18 +1,18 @@
-[GLOBAL gdt_flush]	; Allows C to link to us
+; Global Descriptor Table
 
-; We get the GDT pointer passed as a parameter
+global gdt_flush
+extern gdt_p ; The GDT pointer from the C file
+
 gdt_flush:
-	mov eax, [esp + 4]
-	lgdt [eax]	; Load the GDT with out GDT pointer
+	lgdt [gdt_p]	; Load the GDT with out GDT pointer
 	
 	mov ax, 0x10	; Set the offset
 	mov ds, ax		; proerply load the data segments
-	mov fs, ax
 	mov es, ax
+	mov fs, ax
 	mov gs, ax
 	mov ss, ax
-	jmp 0x08:.flush
+	jmp 0x08:flush2
 	
-	
-.flush:
+flush2:
 	ret

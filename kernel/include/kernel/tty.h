@@ -9,5 +9,4 @@ void terminal_putchar(char c);
 void kprint();
 
 void clear();
-
 #endif

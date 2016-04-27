@@ -22,8 +22,6 @@ struct gdt_ptr
 } __attribute__((packed));
 
 
-
-
-void init_descriptors();
+void init_gdt();
 
 #endif // _GDT_H_

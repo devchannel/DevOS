@@ -1,3 +1,5 @@
+[BITS 32]
+
 ; Declare all the constants used in the multiboot header
 MBALIGN equ 1<<0
 MEMINFO equ  1<<1             	; provide memory map
@@ -17,7 +19,7 @@ section .bootstrap_stack, nobits ;Create a section for the stack
 align 4
 ;Make a pointer to the bottom of the stack
 stack_bottom:
-resb 32768 ; Skip over 32KiB
+resb 8192 ; Skip over 8KiB
 stack_top:
 
 section .text
@@ -52,3 +54,4 @@ _start:
 ; So cool, much wow
 
 %include 'arch/i386/gdt.asm'
+%include 'arch/i386/idt.asm'

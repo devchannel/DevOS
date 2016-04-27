@@ -30,7 +30,7 @@ enum vga_color
 	COLOR_LIGHT_RED = 12,
 	COLOR_LIGHT_MAGENTA = 13,
 	COLOR_LIGHT_BROWN = 14,
-	COLOR_WHITE= 15,
+	COLOR_WHITE = 15,
 };
 
 static inline uint8_t join_color(enum vga_color fg, enum vga_color bg)
@@ -43,6 +43,11 @@ inline uint16_t make_vga_entry(char c, uint8_t color)
 	uint16_t c16 = c;
 	uint16_t color16 = color;
 	return c16 | color16 << 8;
+}
+
+static inline void set_terminal_color(enum vga_color fg, enum vga_color bg)
+{
+	terminal_color = join_color(fg, bg);
 }
 
 #endif

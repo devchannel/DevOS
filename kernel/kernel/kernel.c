@@ -9,7 +9,8 @@
 void kernel_launch(void)
 {
 	terminal_init();
-	printf("Welcome to DevOS. We have succesfully booted and loaded.\n\n");
+	
+	printf("\n\t\t\t\t\t\t\tWe have succesfully booted.\n\t\t\t\t\t\t\t\t\tWelcome to\n\t\t\t\t\t\t\t\t\t\tDevOS\n");
 }
 
 void kernel_main(void)

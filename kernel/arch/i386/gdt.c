@@ -1,32 +1,24 @@
-#include "dt.h"
+#include "gdt.h"
 
 /* defined in gdt.asm */
-extern void gdt_flush(uint32_t);
+extern void gdt_flush();
 
-static void init_gdt();
 static void gdt_set_gate(int num, uint32_t base, uint32_t limit, uint8_t access, uint8_t gran);
 
 /* Our actual GDT and pointer */
-struct gdt_entry 	gdt[5];
+struct gdt_entry 	gdt[3];
 struct gdt_ptr		gdt_p;
 
-void init_descriptors()
+void init_gdt()
 {
-	init_gdt();
-}
-
-static void init_gdt()
-{
-	gdt_p.limit = (sizeof(struct gdt_entry) * 5) - 1;
+	gdt_p.limit = (sizeof(struct gdt_entry) * 3) - 1;
 	gdt_p.base = (uint32_t) &gdt;
 	
-	gdt_set_gate(0, 0, 0, 0, 0); 				// Null GDT segment
-	gdt_set_gate(1, 0, 0xFFFFFFFF, 0x9A, 0); 	// Code Segment
-	gdt_set_gate(2, 0, 0xFFFFFFFF, 0x92, 0); 	// Data Segment
-	gdt_set_gate(3, 0, 0xFFFFFFFF, 0xFA, 0);	// User mode Code Segment
-	gdt_set_gate(4, 0, 0xFFFFFFFF, 0xF2, 0);	// User mode Data Segment
+	gdt_set_gate(0, 0, 0, 0, 0); 					// Null GDT segment
+	gdt_set_gate(1, 0, 0xFFFFFFFF, 0x9A, 0xCF); 	// Code Segment
+	gdt_set_gate(2, 0, 0xFFFFFFFF, 0x92, 0xCF); 	// Data Segment
 	
-	gdt_flush((uint32_t) &gdt_p);
+	gdt_flush();
 }
 
 static void gdt_set_gate(int num, uint32_t base, uint32_t limit, uint8_t access, uint8_t gran)
