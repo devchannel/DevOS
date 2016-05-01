@@ -4,8 +4,6 @@
 
 extern void idt_flush(); // Defined in idt.asm
 
-static void idt_set_gate(unsigned char num, unsigned long base, unsigned short sel, unsigned char flags);
-
 struct idt_entry idt[256];
 struct idt_ptr idt_p;
 

@@ -55,3 +55,4 @@ _start:
 
 %include 'arch/i386/gdt.asm'
 %include 'arch/i386/idt.asm'
+%include 'arch/i386/isrs.asm'
