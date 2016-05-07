@@ -13,6 +13,9 @@ void kernel_launch(void)
 	init_gdt();
 	init_idt();
 	isrs_install();
+	irq_install();
+	
+	asm volatile("sti");
 	
 	printf("\n\t\t\t\t\t\t\tWe have succesfully booted.\n\t\t\t\t\t\t\t\t\tWelcome to\n\t\t\t\t\t\t\t\t\t\tDevOS\n");
 }

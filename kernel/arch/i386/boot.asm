@@ -53,6 +53,7 @@ _start:
 	jmp .forever ; loop forever
 ; So cool, much wow
 
-%include 'arch/i386/gdt.asm'
-%include 'arch/i386/idt.asm'
-%include 'arch/i386/isrs.asm'
+%include 'arch/i386/gdt_a.asm'
+%include 'arch/i386/idt_a.asm'
+%include 'arch/i386/isrs_a.asm'
+%include 'arch/i386/irq_a.asm'
