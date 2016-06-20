@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <kernel/tty.h>
+#include <drivers/screen.h>
 #include <system.h>
 
 void kernel_launch(void)

@@ -1,15 +1,9 @@
 #include <string.h>
 
-#if defined(__DevOS_Kernel_)
-#	include <kernel/tty.h>
-#endif
+#include <drivers/screen.h>
 
 int putchar(int c)
 {
-	#if defined(__DevOS_Kernel_)
-		terminal_putchar(c);
-	#else
-	//TODO: Something here
-	#endif
+	terminal_putchar(c);
 	return c;
 }

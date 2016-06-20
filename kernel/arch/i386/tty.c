@@ -3,15 +3,17 @@
 #include <stdint.h>
 #include <string.h>
 
-#include <kernel/tty.h>
-#include <kernel/vga.h>
-
-#include "idt.h"
-#include "gdt.h"
+#include <drivers/screen.h>
+#include "vga.h"
 
 static void terminal_putentry(char c, uint8_t color, size_t x, size_t y)
 {
 	terminal_buffer[y * VGA_WIDTH + x] = make_vga_entry(c, color);
+}
+
+void terminal_putchar_at(char c, size_t x, size_t y)
+{
+  terminal_putentry(c, terminal_color, x, y);
 }
 
 void clear()
@@ -32,9 +34,6 @@ void terminal_init(void)
 {
 	set_terminal_color(COLOR_LIGHT_CYAN, COLOR_DARK_GREY);
 	terminal_buffer = (uint16_t*) 0xB8000;
-	
-	init_gdt();
-	init_idt();
 	
 	clear();	
 }
@@ -90,3 +89,5 @@ void kprint(const char* str)
 	for(size_t i = 0; i < size; i++)
 		terminal_putchar(str[i]); 
 }
+
+
