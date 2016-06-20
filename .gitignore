@@ -39,3 +39,6 @@ sysroot
 
 # Debug files
 *.dSYM/
+
+# Emacs files
+**.#*
