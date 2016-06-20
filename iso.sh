@@ -8,7 +8,7 @@ mkdir -p isodir/boot/grub
 
 cp sysroot/boot/devos.kernel isodir/boot/devos.kernel
 cat > isodir/boot/grub/grub.cfg << EOF
-menuentry "myos" {
+menuentry "devos" {
 	multiboot /boot/devos.kernel
 }
 EOF
