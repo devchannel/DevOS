@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-. ./config.sh
+. ./config.sh $1 $2
 
 mkdir -p sysroot
 

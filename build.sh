@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 . ./clean.sh # Clean the project before building again, otherwise we might get some funky errors
-. ./headers.sh
+. ./headers.sh $1 $2
 
 
 for PROJECT in $PROJECTS; do

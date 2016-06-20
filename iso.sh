@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-. ./build.sh
+. ./build.sh $1 $2
 
 mkdir -p isodir
 mkdir -p isodir/boot

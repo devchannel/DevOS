@@ -33,4 +33,11 @@ if echo "$HOST" | grep -Eq -- '-elf($|-)'; then
   export CC="$CC -isystem=$INCLUDEDIR"
 fi
 
+export HOSTARCH="i386"
+if [ "$1" != "" ]; then
+   export HOSTARCH="$1"
+fi
 
+if [ "$2" != "" ]; then
+    export HOST="$2"
+fi
