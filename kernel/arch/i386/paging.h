@@ -35,8 +35,8 @@ typedef struct page_directory
 // This isn't good, but it works for now. As soon as we get a kmalloc function
 // TODO: Replace this!
 
-page_directory_t first_directory __attribute__(alligned(4096));
-page_table_t first_table __attribute__(alligned(4096));
+page_directory_t first_directory __attribute__((alligned(4096)));
+page_table_t first_table __attribute__((alligned(4096)));
 
 
 #endif // _PAGING_H_
